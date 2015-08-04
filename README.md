@@ -5,7 +5,6 @@ This project uses Scala only for the `:core` project only because that's less dr
 
 ## Setup
 Create a 'local.properties' which sets 'sdk.dir' to the path of your Android sdk.
-*For some reason on windows I can't make this work*
 
 Example: `sdk.dir=/opt/android/sdk`
 
