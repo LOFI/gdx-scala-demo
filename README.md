@@ -25,13 +25,45 @@ scope you may have to increase this yet again. Pretty typical stuff for JVM deve
 ### Android
 
 I've currently left Proguard in a very "wide open" state (doesn't remove any part of libGDX). This
-is only apparently needed if you're using Bullet. So if you're not going to use Bullet then you can 
-remove the following lines in `android/proguard-project.txt`:
+is cray cray and you'll want to tone things down a notch. An example proguard (thanks @Tom-Ski):
 
 ```
--keep class com.badlogic.gdx.**
+-keep class com.badlogic.gdx.math.** { *; }
 
--keepclassmembers class com.badlogic.gdx.** {
-  *;
-}
+-keep class com.badlogic.gdx.physics.bullet.collision.CollisionJNI { *; }
+-keep class com.badlogic.gdx.physics.bullet.dynamics.DynamicsJNI { *; }
+-keep class com.badlogic.gdx.physics.bullet.extras.ExtrasJNI { *; }
+-keep class com.badlogic.gdx.physics.bullet.linearmath.LinearMathJNI { *; }
+-keep class com.badlogic.gdx.physics.bullet.softbody.SoftbodyJNI { *; }
+
+-keep class com.badlogic.gdx.physics.bullet.collision.btBroadphaseAabbCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btBroadphaseRayCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btConvexTriangleCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btGhostPairCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btInternalTriangleIndexCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btNodeOverlapCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btOverlapCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btOverlapFilterCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btOverlappingPairCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btTriangleCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btTriangleConvexcastCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.btTriangleRaycastCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.ContactCache { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.ContactListener { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.CustomCollisionDispatcher { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.LocalRayResult { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.LocalShapeInfo { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.RayResultCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.ClosestRayResultCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.AllHitsRayResultCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.ConvexResultCallback { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.LocalConvexResult { *; }
+-keep class com.badlogic.gdx.physics.bullet.collision.ContactResultCallback { *; }
+
+-keep class com.badlogic.gdx.physics.bullet.dynamics.InternalTickCallback { *; }
+
+-keep class com.badlogic.gdx.physics.bullet.extras.btBulletWorldImporter { *; }
+
+-keep class com.badlogic.gdx.physics.bullet.linearmath.btIDebugDraw { *; }
+-keep class com.badlogic.gdx.physics.bullet.linearmath.btMotionState { *; }
 ```
