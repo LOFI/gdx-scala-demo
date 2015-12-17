@@ -5,12 +5,14 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.physics.bullet.Bullet
 
 class GdxScalaDemoGame extends ApplicationAdapter {
   private[demo] var batch: SpriteBatch = null
   private[demo] var img: Texture = null
 
   override def create() {
+    Bullet.init()
     batch = new SpriteBatch
     img = new Texture("badlogic.jpg")
   }

@@ -18,7 +18,7 @@
 	"isShellCommand": true,
 
 	// Show the output window only if unrecognized errors occur.
-	"showOutput": "silent",
+	"showOutput": "always",
 
 	// args is the HelloWorld program to compile.
 	"args": ["build"],
